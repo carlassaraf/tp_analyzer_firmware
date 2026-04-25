@@ -1,6 +1,9 @@
 add_library(app STATIC
   app.c
   tasks/ui_task.c
+  ui/screen_manager.c
+  ui/screens/scr_boot.c
+  ui/screens/scr_home.c
 )
 
 target_include_directories(app PUBLIC
