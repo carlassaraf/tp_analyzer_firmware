@@ -7,7 +7,6 @@
 static lv_obj_t *scr_boot                    = NULL;
 static lv_obj_t *scr_boot_label_welcome      = NULL;
 static lv_obj_t *scr_boot_spinner_welcome    = NULL;
-static lv_obj_t *scr_boot_label_fw_version   = NULL;
 
 static uint32_t timestamp_start_boot = 0;
 
@@ -45,7 +44,6 @@ void scr_boot_deinit(void) {
   scr_boot                  = NULL;
   scr_boot_label_welcome    = NULL;
   scr_boot_spinner_welcome  = NULL;
-  scr_boot_label_fw_version = NULL;
 }
 
 void scr_boot_step(void) {
