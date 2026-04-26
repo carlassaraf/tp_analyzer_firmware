@@ -55,6 +55,7 @@ int32_t lvgl_port_init(void) {
     static uint8_t buf[TFT_WIDTH * DISPLAY_BUFFER_LINES * 2] __attribute__((aligned(4)));
 
     disp = lv_display_create(TFT_WIDTH, TFT_HEIGHT);
+    lv_display_set_color_format(disp, LV_COLOR_FORMAT_RGB565_SWAPPED);
     lv_display_set_flush_cb(disp, flush_cb);
     lv_display_set_buffers(disp, buf, NULL, sizeof(buf), LV_DISPLAY_RENDER_MODE_PARTIAL);
 
