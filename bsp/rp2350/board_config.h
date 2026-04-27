@@ -22,9 +22,28 @@
 #define TFT_COL_OFFSET  0
 #define TFT_ROW_OFFSET  34
 
+// ADC input
+#define ADC_GPIO         26    // GPIO26 = ADC channel 0
+#define ADC_CHANNEL      0
+#define ADC_SAMPLE_RATE  10000 // Hz
+
 // Rotary encoder
 #define PIN_ENC_A    6
 #define PIN_ENC_B    7
 #define PIN_ENC_BTN  8
+
+// ---- ILI9486 3.5" 480x320 8-bit parallel (tentative) ----
+// Data bus D0-D7 uses GPIO 0-7 (consecutive, required for gpio_put_masked).
+// WARNING: GPIO 6, 7, 8 conflict with PIN_ENC_A, PIN_ENC_B, PIN_ENC_BTN above.
+// When using this display, move the encoder to free GPIOs (e.g. 26, 27, 28).
+#define ILI9486_DATA_BASE  0   // D0=GPIO0, D1=GPIO1, ..., D7=GPIO7
+#define ILI9486_PIN_WR     10  // Write strobe (active low)
+#define ILI9486_PIN_RD     11  // Read strobe  (active low, can be tied high)
+#define ILI9486_PIN_RS     12  // Register select: 0=cmd, 1=data
+#define ILI9486_PIN_CS     13  // Chip select (active low)
+#define ILI9486_PIN_RST    14  // Reset (active low)
+#define ILI9486_PIN_BL     15  // Backlight enable (active high)
+#define ILI9486_WIDTH      480
+#define ILI9486_HEIGHT     320
 
 #endif

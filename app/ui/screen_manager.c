@@ -15,6 +15,7 @@ typedef struct screen {
 static const screen_t screens[SCREEN_COUNT] = {
   [SCREEN_BOOT] = SCR_REGISTER(scr_boot),
   [SCREEN_HOME] = SCR_REGISTER(scr_home),
+  [SCREEN_PLOT] = SCR_REGISTER(scr_plot),
 };
 
 // Keep track of running screens and transitions

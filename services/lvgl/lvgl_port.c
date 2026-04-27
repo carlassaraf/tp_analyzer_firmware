@@ -5,21 +5,21 @@
 #include "task.h"
 
 #if defined(DISPLAY_DRIVER_ILI9486)
-#  include "drivers/display/ili9486.h"
-#  define DISP_WIDTH   ILI9486_WIDTH
-#  define DISP_HEIGHT  ILI9486_HEIGHT
-#  define DISP_X_OFF   0
-#  define DISP_Y_OFF   0
+#include "drivers/display/ili9486.h"
+#define DISP_WIDTH    ILI9486_WIDTH
+#define DISP_HEIGHT   ILI9486_HEIGHT
+#define DISP_X_OFF    0
+#define DISP_Y_OFF    0
 static ili9486_t *display_ctx;
 #elif defined(DISPLAY_DRIVER_ST7789)
-#  include "drivers/display/st7789.h"
-#  define DISP_WIDTH   TFT_WIDTH
-#  define DISP_HEIGHT  TFT_HEIGHT
-#  define DISP_X_OFF   TFT_COL_OFFSET
-#  define DISP_Y_OFF   TFT_ROW_OFFSET
+#include "drivers/display/st7789.h"
+#define DISP_WIDTH    TFT_WIDTH
+#define DISP_HEIGHT   TFT_HEIGHT
+#define DISP_X_OFF    TFT_COL_OFFSET
+#define DISP_Y_OFF    TFT_ROW_OFFSET
 static st7789_t *display_ctx;
 #else
-#  error "No display driver selected. Set DISPLAY_DRIVER to ST7789 or ILI9486."
+#error "No display driver selected. Set DISPLAY_DRIVER to ST7789 or ILI9486."
 #endif
 
 #define DISPLAY_BUFFER_LINES 20
