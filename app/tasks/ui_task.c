@@ -3,6 +3,7 @@
 #include "lvgl.h"
 #include "services/lvgl/lvgl_port.h"
 #include "ui/screen_manager.h"
+#include "ui/screen_update.h"
 #include <stdio.h>
 
 void ui_task(void *params) {
@@ -13,9 +14,11 @@ void ui_task(void *params) {
   }
 
   screen_manager_init();
+  screen_update_init();
 
   while (true) {
     lv_task_handler();
+    screen_update();
     screen_manager_step();
     vTaskDelay(pdMS_TO_TICKS(10));
   }
