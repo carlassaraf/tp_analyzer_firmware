@@ -4,6 +4,7 @@ add_library(app STATIC
   ui/screen_manager.c
   ui/screens/scr_boot.c
   ui/screens/scr_home.c
+  ui/screens/scr_plot.c
 )
 
 target_include_directories(app PUBLIC

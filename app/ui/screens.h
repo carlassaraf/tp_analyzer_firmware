@@ -1,6 +1,7 @@
 #include "lvgl.h"
 #include "screens/scr_boot.h"
 #include "screens/scr_home.h"
+#include "screens/scr_plot.h"
 
 // Register a screen by name — expands to the three callbacks expected by screen_manager.
 #define SCR_REGISTER(scr_name)  { scr_name##_init, scr_name##_deinit, scr_name##_step }
@@ -20,5 +21,6 @@
 typedef enum screen_id {
     SCREEN_BOOT,
     SCREEN_HOME,
+    SCREEN_PLOT,
     SCREEN_COUNT
 } screen_id_t;
