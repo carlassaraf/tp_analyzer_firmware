@@ -15,6 +15,7 @@ static void timer_cb(lv_timer_t *timer) {
 void scr_boot_init(void) {
   // Create timer to change screen
   timer_handle = lv_timer_create(timer_cb, SCR_BOOT_TIME_WAIT_MS, NULL);
+  _ui_screen_change(&ui_scrBoot, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_scrBoot_screen_init);
 }
 
 void scr_boot_deinit(void) {

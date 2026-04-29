@@ -34,9 +34,13 @@ void screen_manager_go_to(screen_id_t id) {
 
 void screen_manager_step(void) {
   if (pending != current) {
+    lv_lock();
     screens[current].deinit();
+    screens[pending].init();
+    lv_unlock();
     current = pending;
-    screens[current].init();
   }
+  lv_lock();
   screens[current].step();
+  lv_unlock();
 }
