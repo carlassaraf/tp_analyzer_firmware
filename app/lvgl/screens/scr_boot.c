@@ -1,5 +1,5 @@
 #include "lvgl.h"
-#include "ui/screen_manager.h"
+#include "lvgl/screen_manager.h"
 
 // Time to wait in the boot screen
 #define SCR_BOOT_TIME_WAIT_MS 5000

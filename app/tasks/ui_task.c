@@ -2,8 +2,8 @@
 #include "task.h"
 #include "lvgl.h"
 #include "services/lvgl/lvgl_port.h"
-#include "ui/screen_manager.h"
-#include "ui/screen_update.h"
+#include "lvgl/screen_manager.h"
+#include "lvgl/screen_update.h"
 #include <stdio.h>
 
 void ui_task(void *params) {

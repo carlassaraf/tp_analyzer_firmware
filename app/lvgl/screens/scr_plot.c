@@ -1,7 +1,7 @@
 #include "scr_plot.h"
 #include "lvgl.h"
-#include "ui/screens.h"
-#include "ui/helpers/chart.h"
+#include "lvgl/screens.h"
+#include "lvgl/helpers/chart.h"
 
 lv_obj_t *scr_plot = NULL;
 lv_obj_t *scr_plot_chart = NULL;
