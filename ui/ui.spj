@@ -11,7 +11,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "lbl boot",
+                "strval": "lblWelcome",
                 "InheritedType": 10
               },
               {
@@ -171,7 +171,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "spin loading",
+                "strval": "spinWelcome",
                 "InheritedType": 10
               },
               {
@@ -339,7 +339,7 @@
           {
             "nid": 10,
             "strtype": "OBJECT/Name",
-            "strval": "boot",
+            "strval": "scrBoot",
             "InheritedType": 10
           },
           {
@@ -452,16 +452,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "view",
-                "childs": [
-                  {
-                    "nid": 15,
-                    "flags": 1048576,
-                    "strtype": "_codename/Codename",
-                    "strval": "view",
-                    "InheritedType": 10
-                  }
-                ],
+                "strval": "chartView",
                 "InheritedType": 10
               },
               {
@@ -804,16 +795,7 @@
                       {
                         "nid": 10,
                         "strtype": "OBJECT/Name",
-                        "strval": "lbl rms",
-                        "childs": [
-                          {
-                            "nid": 15,
-                            "flags": 1048576,
-                            "strtype": "_codename/Codename",
-                            "strval": "lbl_rms",
-                            "InheritedType": 10
-                          }
-                        ],
+                        "strval": "lblVrms",
                         "InheritedType": 10
                       },
                       {
@@ -957,7 +939,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "btn vrms",
+                    "strval": "btnVrms",
                     "InheritedType": 10
                   },
                   {
@@ -1127,7 +1109,7 @@
                       {
                         "nid": 10,
                         "strtype": "OBJECT/Name",
-                        "strval": "lbl freq",
+                        "strval": "lblFreq",
                         "InheritedType": 10
                       },
                       {
@@ -1271,7 +1253,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "btn freq",
+                    "strval": "btnFreq",
                     "InheritedType": 10
                   },
                   {
@@ -1438,7 +1420,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "btn back",
+                    "strval": "btnBack",
                     "InheritedType": 10
                   },
                   {
@@ -1610,16 +1592,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "view controller",
-                "childs": [
-                  {
-                    "nid": 15,
-                    "flags": 1048576,
-                    "strtype": "_codename/Codename",
-                    "strval": "plotter_Panel_view_controller",
-                    "InheritedType": 10
-                  }
-                ],
+                "strval": "pnlView",
                 "InheritedType": 10
               },
               {
@@ -1795,16 +1768,7 @@
           {
             "nid": 10,
             "strtype": "OBJECT/Name",
-            "strval": "plotter",
-            "childs": [
-              {
-                "nid": 15,
-                "flags": 1048576,
-                "strtype": "_codename/Codename",
-                "strval": "plotter",
-                "InheritedType": 10
-              }
-            ],
+            "strval": "scrPlotter",
             "InheritedType": 10
           },
           {
@@ -2258,7 +2222,7 @@
     }
   ],
   "selected_theme": "Default",
-  "selected_screen": "GUID44428160-663090S535955118",
+  "selected_screen": "GUID56084559-662854S6815118",
   "info": {
     "name": "ui.spj",
     "depth": 1,
@@ -2278,7 +2242,7 @@
     "force_export_images": false,
     "flat_export": false,
     "advanced_alpha": false,
-    "pointfilter": false,
+    "pointfilter": true,
     "theme_simplified": false,
     "theme_dark": true,
     "theme_color1": 5,
@@ -2287,14 +2251,14 @@
     "separate_screen_save": false,
     "hierarchy_state_save": false,
     "reverse_event_order": false,
-    "backup_cnt": 8,
+    "backup_cnt": 19,
     "autosave_cnt": 0,
-    "group_color_cnt": 0,
+    "group_color_cnt": 1,
     "imagebytearrayprefix": "",
     "lvgl_version": "9.3",
     "callfuncsexport": "C_FILE",
     "imageexport": "SOURCE",
-    "lvgl_include_path": "",
+    "lvgl_include_path": "lvgl.h",
     "naming": "_Screen_Name",
     "naming_force_lowercase": false,
     "naming_add_subcomponent": false,
