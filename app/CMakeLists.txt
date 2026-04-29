@@ -18,3 +18,8 @@ target_link_libraries(app
   services
   freertos
 )
+
+add_subdirectory(lvgl/ui)
+target_include_directories(ui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lvgl/ui)
+target_link_libraries(ui lvgl)
+target_link_libraries(app ui)
