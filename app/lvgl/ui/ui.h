@@ -16,8 +16,8 @@ extern "C" {
 #include "ui_events.h"
 
 ///////////////////// SCREENS ////////////////////
-#include "screens/ui_boot.h"
-#include "screens/ui_plotter.h"
+#include "screens/ui_scrBoot.h"
+#include "screens/ui_scrPlotter.h"
 
 ///////////////////// VARIABLES ////////////////////
 extern lv_anim_t * Hideonnoactivity_Animation( lv_obj_t *TargetObject, int delay);

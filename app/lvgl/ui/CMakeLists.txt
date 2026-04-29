@@ -1,5 +1,5 @@
-SET(SOURCES screens/ui_boot.c
-    screens/ui_plotter.c
+SET(SOURCES screens/ui_scrBoot.c
+    screens/ui_scrPlotter.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
