@@ -1,3 +1,4 @@
+#include "ui.h"
 #include "screen_manager.h"
 
 /** 
@@ -6,6 +7,8 @@
  * and run callback functions
  */
 typedef struct screen {
+  const char *name;
+  lv_obj_t **scr;
   void (*init)(void);
   void (*deinit)(void);
   void (*step)(void);
@@ -13,9 +16,8 @@ typedef struct screen {
 
 // Used to register all screens in the applications with their callback functions
 static const screen_t screens[SCREEN_COUNT] = {
-  [SCREEN_BOOT] = SCR_REGISTER(scr_boot),
-  [SCREEN_HOME] = SCR_REGISTER(scr_home),
-  [SCREEN_PLOT] = SCR_REGISTER(scr_plot),
+  [SCREEN_BOOT] = SCR_REGISTER("Boot",    ui_scrBoot,     boot    ),
+  [SCREEN_PLOT] = SCR_REGISTER("Plotter", ui_scrPlotter,  plotter ),
 };
 
 // Keep track of running screens and transitions
@@ -32,9 +34,13 @@ void screen_manager_go_to(screen_id_t id) {
 
 void screen_manager_step(void) {
   if (pending != current) {
+    lv_lock();
     screens[current].deinit();
+    screens[pending].init();
+    lv_unlock();
     current = pending;
-    screens[current].init();
   }
+  lv_lock();
   screens[current].step();
+  lv_unlock();
 }

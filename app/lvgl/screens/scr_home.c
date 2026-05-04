@@ -1,6 +1,6 @@
 #include "scr_home.h"
 #include "lvgl.h"
-#include "ui/screens.h"
+#include "lvgl/screens.h"
 
 static lv_obj_t *scr_home     = NULL;
 static lv_obj_t *scr_home_btn = NULL;

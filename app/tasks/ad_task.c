@@ -1,6 +1,6 @@
 #include "ad_task.h"
 #include "hal/hal_adc.h"
-#include "ui/screen_update.h"
+#include "lvgl/screen_update.h"
 #include "board_config.h"
 
 #include "FreeRTOS.h"
