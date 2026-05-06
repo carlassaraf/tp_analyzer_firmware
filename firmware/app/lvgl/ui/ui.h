@@ -20,7 +20,6 @@ extern "C" {
 #include "screens/ui_scrPlotter.h"
 
 ///////////////////// VARIABLES ////////////////////
-extern lv_anim_t * Hideonnoactivity_Animation( lv_obj_t *TargetObject, int delay);
 
 // EVENTS
 extern lv_obj_t *ui____initial_actions0;
