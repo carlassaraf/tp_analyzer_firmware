@@ -12,7 +12,7 @@ typedef struct {
     uint8_t pin_rs;        // Register select: 0=command, 1=data
     uint8_t pin_cs;        // Chip select, active low
     uint8_t pin_rst;       // Reset, active low
-    uint8_t pin_bl;        // Backlight enable, active high
+    int8_t  pin_bl;        // Backlight enable, active high; -1 = not connected
     uint16_t width;
     uint16_t height;
     uint8_t rotation;      // 0=portrait, 1=landscape, 2=portrait-flip, 3=landscape-flip
