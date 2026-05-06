@@ -1,3 +1,6 @@
+#ifndef SCREENS_H
+#define SCREENS_H
+
 #include "lvgl.h"
 #include "screens/scr_boot.h"
 #include "screens/scr_home.h"
@@ -24,3 +27,5 @@ typedef enum screen_id {
     SCREEN_PLOT,
     SCREEN_COUNT
 } screen_id_t;
+
+#endif /* SCREENS_H */
