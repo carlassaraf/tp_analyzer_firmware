@@ -6,7 +6,7 @@ static uint8_t enc_pin_a;
 static uint8_t enc_pin_b;
 static uint8_t enc_pin_btn;
 
-static volatile int32_t enc_delta = 0;
+static volatile int32_t  enc_delta     = 0;
 
 // On any edge of A: if A == B the encoder moved CCW, otherwise CW.
 // Swap the +1/-1 here if rotation direction feels backwards.

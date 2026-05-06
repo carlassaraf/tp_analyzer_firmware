@@ -10,8 +10,8 @@ typedef struct {
   uint8_t pin_btn;
 } encoder_config_t;
 
-void encoder_init(const encoder_config_t *config);
-int32_t encoder_pop_delta(void);
-bool encoder_btn_down(void);
+void     encoder_init(const encoder_config_t *config);
+int32_t  encoder_pop_delta(void);
+bool     encoder_btn_down(void);
 
 #endif

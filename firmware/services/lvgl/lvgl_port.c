@@ -25,6 +25,7 @@ static st7789_t *display_ctx;
 #define DISPLAY_BUFFER_LINES 20
 
 static lv_display_t *disp;
+static lv_indev_t   *enc_indev;
 
 static void flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *color_p) {
   uint16_t x1 = (uint16_t)area->x1 + DISP_X_OFF;
@@ -48,8 +49,16 @@ static void flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *colo
 
 static void encoder_read_cb(lv_indev_t *indev, lv_indev_data_t *data) {
   (void)indev;
-  data->enc_diff = (int16_t)encoder_pop_delta();
-  data->state    = encoder_btn_down() ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
+  int32_t delta   = encoder_pop_delta();
+  bool    pressed = encoder_btn_down();
+
+  static bool prev_pressed = false;
+  if (pressed != prev_pressed) {
+    prev_pressed = pressed;
+  }
+
+  data->enc_diff = (int16_t)delta;
+  data->state    = pressed ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
 }
 
 int32_t lvgl_port_init(void) {
@@ -63,7 +72,7 @@ int32_t lvgl_port_init(void) {
     .pin_rs  = ILI9486_PIN_RS,
     .pin_cs  = ILI9486_PIN_CS,
     .pin_rst = ILI9486_PIN_RST,
-    .pin_bl  = ILI9486_PIN_BL,
+    .pin_bl  = (int8_t)ILI9486_PIN_BL,
     .width   = ILI9486_WIDTH,
     .height  = ILI9486_HEIGHT,
     .rotation = 1,
@@ -102,20 +111,24 @@ int32_t lvgl_port_init(void) {
 
   lv_tick_set_cb((lv_tick_get_cb_t)xTaskGetTickCount);
 
-  // static const encoder_config_t enc_config = {
-  //   .pin_a   = PIN_ENC_A,
-  //   .pin_b   = PIN_ENC_B,
-  //   .pin_btn = PIN_ENC_BTN,
-  // };
-  // encoder_init(&enc_config);
+  static const encoder_config_t enc_config = {
+    .pin_a   = PIN_ENC_A,
+    .pin_b   = PIN_ENC_B,
+    .pin_btn = PIN_ENC_BTN,
+  };
+  encoder_init(&enc_config);
 
-  // lv_indev_t *enc_indev = lv_indev_create();
-  // lv_indev_set_type(enc_indev, LV_INDEV_TYPE_ENCODER);
-  // lv_indev_set_read_cb(enc_indev, encoder_read_cb);
+  enc_indev = lv_indev_create();
+  lv_indev_set_type(enc_indev, LV_INDEV_TYPE_ENCODER);
+  lv_indev_set_read_cb(enc_indev, encoder_read_cb);
 
-  // lv_group_t *group = lv_group_create();
-  // lv_group_set_default(group);
-  // lv_indev_set_group(enc_indev, group);
+  lv_group_t *group = lv_group_create();
+  lv_group_set_default(group);
+  lv_indev_set_group(enc_indev, group);
 
   return 0;
+}
+
+lv_indev_t *lvgl_port_get_encoder(void) {
+  return enc_indev;
 }
