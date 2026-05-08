@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+void scr_plotter_prepare(void);
 void scr_plotter_init(void);
 void scr_plotter_deinit(void);
 void scr_plotter_step(void);

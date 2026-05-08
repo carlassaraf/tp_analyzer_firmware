@@ -7,7 +7,7 @@
 #include "screens/scr_plotter.h"
 
 // Register a screen by name — expands to the three callbacks expected by screen_manager.
-#define SCR_REGISTER(name, scr, fn_name)  { name, &scr, scr_##fn_name##_init, scr_##fn_name##_deinit, scr_##fn_name##_step }
+#define SCR_REGISTER(name, scr, fn_name)  { name, &scr, scr_##fn_name##_prepare, scr_##fn_name##_init, scr_##fn_name##_deinit, scr_##fn_name##_step }
 
 // Add a widget to the default LVGL encoder group so it can receive input.
 // Call this inside scr_xxx_init() for every focusable widget on the screen.

@@ -8,8 +8,11 @@ static lv_timer_t *timer_handle = NULL;
 
 /** @brief Handles changing screen after timeout */
 static void timer_cb(lv_timer_t *timer) {
-  screen_manager_go_to(SCREEN_HOME);
+  screen_manager_go_to(SCREEN_PLOT);
   lv_timer_delete(timer_handle);
+}
+
+void scr_boot_prepare(void) {
 }
 
 void scr_boot_init(void) {

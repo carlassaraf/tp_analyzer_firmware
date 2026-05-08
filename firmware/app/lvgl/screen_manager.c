@@ -9,6 +9,7 @@
 typedef struct screen {
   const char *name;
   lv_obj_t **scr;
+  void (*prepare)(void);
   void (*init)(void);
   void (*deinit)(void);
   void (*step)(void);
@@ -25,6 +26,11 @@ static screen_id_t current = SCREEN_BOOT;
 static screen_id_t pending = SCREEN_BOOT;
 
 void screen_manager_init(void) {
+  // Call the prepare callback for all screens to do any setup that needs to be done before the screen is shown for the first time.
+  for (int i = 0; i < SCREEN_COUNT; i++) {
+    screens[i].prepare();
+  }
+  // Start the first screen.
   screens[current].init();
 }
 
