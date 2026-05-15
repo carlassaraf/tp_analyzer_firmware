@@ -1,9 +1,9 @@
 #include "ui.h"
 #include "screen_manager.h"
 
-/** 
+/**
  * @struct screen
- * @brief Screen struct for the manager to register 
+ * @brief Screen struct for the manager to register
  * and run callback functions
  */
 typedef struct screen {
@@ -26,12 +26,12 @@ static screen_id_t current = SCREEN_BOOT;
 static screen_id_t pending = SCREEN_BOOT;
 
 void screen_manager_init(void) {
-  // Call the prepare callback for all screens to do any setup that needs to be done before the screen is shown for the first time.
-  for (int i = 0; i < SCREEN_COUNT; i++) {
-    screens[i].prepare();
+  // Prepare screens
+  for(screen_id_t i = 0; i < SCREEN_COUNT; i++) {
+    if(screens[i].prepare) { screens[i].prepare(); }
   }
-  // Start the first screen.
-  screens[current].init();
+  // Init first screen
+  if(screens[current].init) { screens[current].init(); }
 }
 
 void screen_manager_go_to(screen_id_t id) {
@@ -41,12 +41,12 @@ void screen_manager_go_to(screen_id_t id) {
 void screen_manager_step(void) {
   if (pending != current) {
     lv_lock();
-    screens[current].deinit();
-    screens[pending].init();
+    if(screens[current].deinit) { screens[current].deinit(); }
+    if(screens[pending].init) { screens[pending].init(); }
     lv_unlock();
     current = pending;
   }
   lv_lock();
-  screens[current].step();
+  if(screens[current].step) { screens[current].step(); }
   lv_unlock();
 }

@@ -13,6 +13,7 @@ static void timer_cb(lv_timer_t *timer) {
 }
 
 void scr_boot_prepare(void) {
+  ui_scrBoot_screen_init();
 }
 
 void scr_boot_init(void) {

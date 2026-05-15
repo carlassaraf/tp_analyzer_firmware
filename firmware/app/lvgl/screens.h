@@ -23,7 +23,7 @@
  */
 typedef enum screen_id {
     SCREEN_BOOT,
-    SCREEN_HOME,
+    // SCREEN_HOME,
     SCREEN_PLOT,
     SCREEN_COUNT
 } screen_id_t;
