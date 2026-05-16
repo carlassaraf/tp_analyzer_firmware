@@ -67,11 +67,11 @@ static void hw_reset(const ili9486_config_t *cfg) {
 
 static uint8_t rotation_to_madctl(uint8_t rotation) {
     switch (rotation) {
-        case 0:  return 0;
-        case 1:  return MADCTL_MX | MADCTL_MV;
-        case 2:  return MADCTL_MY | MADCTL_MX;
-        case 3:  return MADCTL_MY | MADCTL_MX | MADCTL_MV;
-        default: return MADCTL_MV;
+        case 0:  return MADCTL_BGR;
+        case 1:  return MADCTL_MX | MADCTL_MV | MADCTL_BGR;
+        case 2:  return MADCTL_MY | MADCTL_MX | MADCTL_BGR;
+        case 3:  return MADCTL_MY | MADCTL_MX | MADCTL_MV | MADCTL_BGR;
+        default: return MADCTL_MV | MADCTL_BGR;
     }
 }
 
