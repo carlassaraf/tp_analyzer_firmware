@@ -42,7 +42,10 @@ void screen_manager_step(void) {
   if (pending != current) {
     lv_lock();
     if(screens[current].deinit) { screens[current].deinit(); }
-    if(screens[pending].init) { screens[pending].init(); }
+    if(screens[pending].init) { 
+      _ui_screen_change(screens[pending].scr, LV_SCR_LOAD_ANIM_NONE, 0, 0, screens[pending].init);
+      screens[pending].init();
+    }
     lv_unlock();
     current = pending;
   }

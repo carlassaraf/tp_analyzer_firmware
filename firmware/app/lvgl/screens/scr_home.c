@@ -20,8 +20,6 @@ void scr_home_init(void) {
   // Make this button reachable by the rotary encoder.
   // Add every focusable widget on this screen the same way.
   SCR_ADD_TO_GROUP(scr_home_btn);
-
-  lv_screen_load_anim(scr_home, LV_SCR_LOAD_ANIM_FADE_IN, 300, 0, true);
 }
 
 void scr_home_deinit(void) {

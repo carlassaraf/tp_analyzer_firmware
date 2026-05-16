@@ -4,6 +4,7 @@
 #include "services/lvgl/lvgl_port.h"
 #include "lvgl/screen_manager.h"
 #include "lvgl/screen_update.h"
+#include "ui.h"
 #include <stdio.h>
 
 void ui_task(void *params) {
@@ -13,6 +14,7 @@ void ui_task(void *params) {
     return;
   }
 
+  ui_init();
   screen_manager_init();
   screen_update_init();
 
